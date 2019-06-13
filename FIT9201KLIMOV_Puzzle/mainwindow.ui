@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PuzzleWindow</class>
+ <widget class="QMainWindow" name="PuzzleWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>751</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>150</width>
+    <height>280</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>FIT9201KLIMOV_Puzzle</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGroupBox" name="puzzlePanel">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>0</y>
+      <width>121</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>121</width>
+      <height>280</height>
+     </size>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>102</width>
+       <height>237</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="startDraw">
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="stopDraw">
+        <property name="text">
+         <string>Stop</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="init">
+        <property name="text">
+         <string>Init</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QDial" name="dial">
+          <property name="maximum">
+           <number>360</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_2">
+          <property name="text">
+           <string>Alpha mixer</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox">
+          <property name="text">
+           <string>filter on/off</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <zorder>layoutWidget</zorder>
+    <zorder>startDraw</zorder>
+   </widget>
+   <zorder>puzzlePanel</zorder>
+   <zorder>layoutWidget</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>startDraw</sender>
+   <signal>clicked()</signal>
+   <receiver>PuzzleWindow</receiver>
+   <slot>sl_onStartDraw()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopDraw</sender>
+   <signal>clicked()</signal>
+   <receiver>PuzzleWindow</receiver>
+   <slot>sl_onStopDraw()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>init</sender>
+   <signal>clicked()</signal>
+   <receiver>PuzzleWindow</receiver>
+   <slot>sl_onInit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>361</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>PuzzleWindow</receiver>
+   <slot>sl_onFilterChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>622</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>PuzzleWindow</receiver>
+   <slot>sl_onDegreeChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>682</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>415</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_2</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>PuzzleWindow</receiver>
+   <slot>sl_onAlphaMixChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>658</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>524</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sl_onStartDraw()</slot>
+  <slot>sl_onStopDraw()</slot>
+  <slot>sl_onInit()</slot>
+  <slot>sl_onFilterChanged(int)</slot>
+  <slot>sl_onAlphaMixChanged(int)</slot>
+  <slot>sl_onDegreeChanged(int)</slot>
+  <slot>sl_onAlphaValueChanged(int)</slot>
+ </slots>
+</ui>
